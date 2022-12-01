@@ -1,7 +1,8 @@
 package com.bridgelabz;
 import java.util.LinkedList;
 
-// UC1 - Ability to create a Stack of 56->30->70
+// Ability to peak and pop from the Stack till it is empty
+
 public class StacksQueues {
     static LinkedList<String> ll = new LinkedList<>();
 
@@ -9,12 +10,18 @@ public class StacksQueues {
         ll.add(data);
     }
 
+    public static void pop(){
+        ll.removeLast();
+    }
     public static void print(){
-        for(String element : ll){
-            System.out.println( element );
-            System.out.println("--- ");
-        }
-        System.out.println();
+        if(ll.size() != 0) {
+            for (String element : ll) {
+                System.out.println("| " + element + "|");
+                System.out.println(" --- ");
+            }
+            System.out.println();
+        } else
+            System.out.println("Stack is Null.............");
     }
 
     public static void main(String[] args) {
@@ -23,7 +30,17 @@ public class StacksQueues {
         push("56");
         push("30");
         push("70");
+        push("70");
+        push("70");
+        push("70");
+        System.out.println("Stack :::::::::::::::::::::");
         print();
-
+        int size = ll.size();
+        System.out.println("size " +ll.size());
+        for (int i = 0; i < size; i++){
+            pop();
+        }
+        System.out.println("Stack :::::::::::::::::::::");
+        print();
     }
 }
